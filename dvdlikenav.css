@@ -1,0 +1,58 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+* {
+	box-sizing: border-box;
+}
+#uis,
+video {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+}
+body.debug-highlightUIBorder #uis {
+	border: 3px dashed rgba(255, 255, 0, 0.3);
+}
+body.debug video + video {
+	border-color: blue;
+}
+#ts {
+	position: absolute;
+	top: 1vw;
+	left: 50vw;
+	width: 49vw;
+	color: white;
+	background: black;
+	display: none;
+	font-family: monospace;
+}
+body.debug-tsLog #ts {
+	display: block;
+}
+#uis > div { /* scene-container */
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+#uis > div > div { /* button */
+	position: absolute;
+	cursor: pointer;
+}
+body.debug-highlightButtons #uis > div > div { /* button */
+	background: rgba(0,0,255,0.5);
+}
+#rfs {
+	position: absolute;
+	z-index: 20;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 10vw;
+}

@@ -1,0 +1,5 @@
+.*.sw?
+example_*.png
+*.mp4
+cfg*.js
+!cfg-example.js
