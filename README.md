@@ -14,12 +14,12 @@ Runs in a browser, intended for touch screen displays.
 ## Usage
 
 * Create a `cfg.js`. See `cfg-example.js`.
-** It is basically an array of scenes
-** Each scene has a start/end-marker (in seconds).
-** Each scene can have an array of buttons
-** Each button has coordinates (expressed in fractions [0..1.0]) and a target scene
-** A 'menu' scene should probably `idleAtEnd`.
-** Note: all scenes can have buttons, like a 'back' button that targets the `start` scene.
+  * It is basically an array of scenes
+  * Each scene has a start/end-marker (in seconds).
+  * Each scene can have an array of buttons
+  * Each button has coordinates (expressed in fractions [0..1.0]) and a target scene
+  * A 'menu' scene should probably `idleAtEnd`.
+  * Note: all scenes can have buttons, like a 'back' button that targets the `start` scene.
 * Copy all files to your device and open via file://. You can also run this over a network - it worked surprisingly well over WiFi with a 1GB+ movie.
 * Append `#debug` to the URL to enable debug mode which visualizes borders, buttons and shows timecode and state.
 
