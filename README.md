@@ -8,7 +8,7 @@ Runs in a browser, intended for touch screen displays.
 
 * A video-capable browser. Only tested in Chrome/-ium.
 * A video that can be played with this browser (like h264 in a mp4 container).
-* Everything (all scenes, a menu) have to be in one long movie.
+* Everything (all scenes, a menu) has to be in one long movie.
 * For `make-example-movie.sh`: imagemagick, ffmpeg, bash.
 
 ## Usage
