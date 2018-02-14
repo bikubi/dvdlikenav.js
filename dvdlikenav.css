@@ -55,6 +55,7 @@ body.debug-highlightButtons #uis > div > div { /* button */
 	top: 50%;
 	transform: translate(-50%, -50%);
 	font-size: 10vw;
+	display: none;
 }
 #key {
 	display: none;

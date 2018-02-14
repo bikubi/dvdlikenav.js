@@ -9,6 +9,7 @@
 			"showKeyInput": true,
 			"showSceneSelector": true
 		},
+		assumeFullscreen = !!d.location.hash.match(/isfull/),
 		v = d.getElementsByTagName('video'),
 		el = {},
 		uis = {},
@@ -115,6 +116,10 @@
 				}
 				uis[currentScene.id].style.display = 'block';
 			}
+		},
+		init = function () {
+			window.setInterval(checkProgress, 10);
+			loadScene('start');
 		};
 	console.log('debug', debug);
 	if (debug.enabled) {
@@ -154,22 +159,29 @@
 	else {
 		console.log('listening for fullscreen button click...');
 	*/
-	el.rfs.addEventListener('click', function (e) {
-		if (docEl.requestFullscreen) {
-			console.log('fullscreen! unprefixed!');
-			docEl.requestFullscreen();
-		}
-		else if (docEl.webkitRequestFullscreen) {
-			console.log('fullscreen! webkit');
-			docEl.webkitRequestFullscreen();
-		}
-		else {
-			window.alert('Please use browser controls to switch into fullscreen mode manually');
-		}
-		el.rfs.style.display = 'none';
-		window.setInterval(checkProgress, 10);
-		loadScene('start');
-	});
+	if (assumeFullscreen) {
+		console.log('assuming fullscreen, launching right away');
+		init();
+	}
+	else {
+		console.log('waiting for fullscreen');
+		el.rfs.style.display = 'block';
+		el.rfs.addEventListener('click', function (e) {
+			if (docEl.requestFullscreen) {
+				console.log('fullscreen! unprefixed!');
+				docEl.requestFullscreen();
+			}
+			else if (docEl.webkitRequestFullscreen) {
+				console.log('fullscreen! webkit');
+				docEl.webkitRequestFullscreen();
+			}
+			else {
+				window.alert('Please use browser controls to switch into fullscreen mode manually');
+			}
+			el.rfs.style.display = 'none';
+			init();
+		});
+	}
 	el.uis.addEventListener('click', function (e) {
 		if (e.target.dataset.targetScene) {
 			loadScene(e.target.dataset.targetScene);
