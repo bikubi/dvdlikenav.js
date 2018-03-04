@@ -1,8 +1,8 @@
 # dvdlikenav.js
 
-Navigate a movie like it has a DVD menu: add buttons and point them to regions.
+Navigate a movie like it has a DVD menu: add buttons and point them to regions and jump to scenes on key press.
 
-Runs in a browser, intended for touch screen displays.
+Runs in a fullscreen browser. I used this for a presentation (with touch input) and for a simple game (with a custom keyboard).
 
 ## Requirements
 
@@ -20,6 +20,7 @@ Runs in a browser, intended for touch screen displays.
   * Each button has coordinates (expressed in fractions [0..1.0]) and a target scene
   * A 'menu' scene should probably `idleAtEnd`.
   * Note: all scenes can have buttons, like a 'back' button that targets the `start` scene.
+  * Each scene can have a time window for key presses to jump to a scene, either immediately or after the current scene is finished. Use this for navigation and "quick time events".
 * Copy all files to your device and open via file://. You can also run this over a network - it worked surprisingly well over WiFi with a 1GB+ movie.
 * Append `#debug` to the URL to enable debug mode which visualizes borders, buttons and shows timecode and state.
 
@@ -30,6 +31,15 @@ sh make-example-movie.sh # should create example.mp4
 cp cfg-example.js cfg.js
 xdg-open ./index.html
 ```
+
+* Click one of the numbers to jump into the scene.
+* Scene "100" (`s100`) has a `keyWindow`. Hit (lowercase) <kbd>h</kbd> to jump to **h**ome (`start`), <kbd>n<kbd> to the **n**ext scene (`s200`). In "200" (`s200`) the jump is `delayed` and occurs at the end of the scene.
+
+## "Autostart"
+
+* Run this script / create a link in your OS's Autostart app / config / folder: `chromium --kiosk /path/to/dvdlikenav/index.html#isfull`
+* Windows 10 notes-to-self: <kbd>Win</kbd>+<kbd>R</kbd>, `shell:startup` to open Autostart (it is very well hidden). Create a new link, target should look like `"C:\Program F…\chrome.exe" --kiosk "C:\path…\dvdlikenav\index.html#isfull"`.
+* Since it's hard to reliably detect fullscreen or kiosk mode in a browser, the hash `#isfull` serves as an explicit flag.
 
 ## Video considerations
 
