@@ -33,7 +33,7 @@ xdg-open ./index.html
 ```
 
 * Click one of the numbers to jump into the scene.
-* Scene "100" (`s100`) has a `keyWindow`. Hit (lowercase) <kbd>h</kbd> to jump to **h**ome (`start`), <kbd>n<kbd> to the **n**ext scene (`s200`). In "200" (`s200`) the jump is `delayed` and occurs at the end of the scene.
+* Scene "100" (`s100`) has a `keyWindow`. Hit (lowercase) <kbd>h</kbd> to jump to **h**ome (`start`), <kbd>n</kbd> to the **n**ext scene (`s200`). In "200" (`s200`) the jump is `delayed` and occurs at the end of the scene.
 
 ## "Autostart"
 
