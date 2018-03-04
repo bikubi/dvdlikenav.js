@@ -34,13 +34,20 @@ window.Dvdnavcfg = {
 					"h": 0.4,
 					"targetScene": "s400"
 				}
-
-
 			]
 		},
 		"s100": {
 			"start": 4.0,
-			"end": 8.0 - 1/25
+			"end": 8.0 - 1/25,
+			"keyWindow": {
+				"start": 4.0,
+				"end": 8.0 - 1/25,
+				"delayed": false
+			},
+			"after": {
+				"h": "start",
+				"n": "s200"
+			},
 		},
 		"s200": {
 			"start": 8.0,
