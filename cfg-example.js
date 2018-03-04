@@ -51,7 +51,16 @@ window.Dvdnavcfg = {
 		},
 		"s200": {
 			"start": 8.0,
-			"end": 11.0
+			"end": 11.0 - 1/25,
+			"keyWindow": {
+				"start": 8.0,
+				"end": 11.0 - 1/25,
+				"delayed": true
+			},
+			"after": {
+				"h": "start",
+				"n": "s300"
+			},
 		},
 		"s300": {
 			"start": 12.0,
